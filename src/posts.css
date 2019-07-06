@@ -1,0 +1,132 @@
+.comment {
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+}
+
+.comment-hovered {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    margin-top: 0.2rem;
+    border-radius: 3px;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D0D0D0;
+}
+
+.comment-title {
+    font-weight: bold;
+    padding-right: 0.5rem;
+}
+
+.comment-buttons {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.comment-description {
+    width: 100%;
+    resize : none;
+    margin-top: 0.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.comment-answers {
+    padding-left: 1rem;
+}
+
+.comment-attachments {
+}
+
+.comment-attachments img {
+    max-width: 15rem;
+    border-radius: 1rem;
+}
+
+.answer-comment {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border: 1px solid transparent;
+}
+
+.answer-comment-title {
+
+}
+
+.answer-comment-description {
+    width: 100%;
+    resize : none;
+    height: 3rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.post {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+}
+
+.post-hovered {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    margin-top: 0.2rem;
+    border-radius: 3px;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D0D0D0;
+}
+
+.post-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding-right: 0.5rem;
+}
+
+.post-buttons {
+    float: right;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.post-description {
+    width: 100%;
+    resize : none;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.post-answers {
+    padding-left: 1rem;
+}
+
+.answer-post {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 0.5rem;
+    border: 1px solid transparent;
+}
+
+.answer-post-title {
+
+}
+
+.answer-post-description {
+    width: 100%;
+    resize : none;
+    height: 3rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.4rem;
+}

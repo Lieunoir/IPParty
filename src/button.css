@@ -1,0 +1,16 @@
+.button {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+    background-color: #E8FCC2;
+    border-radius: 3px;
+}
+
+.button-hovered {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+    background-color: #EAFCC7;
+    border-radius: 3px;
+    cursor: pointer;
+}

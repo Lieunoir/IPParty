@@ -1,0 +1,20 @@
+.author-card {
+    display: inline-block;
+    border-radius: 1rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #EEEEEE;
+}
+
+.author-card-image {
+}
+
+.author-card img {
+    vertical-align: middle;
+    height: 2rem;
+    width: 2rem;
+}
+
+.author-card-name {
+    padding: 0.5rem;
+}

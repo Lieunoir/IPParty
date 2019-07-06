@@ -1,0 +1,146 @@
+.event {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    margin-top: 2rem;
+    border: 1px solid transparent;
+}
+
+.event-hovered {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    margin-top: 2rem;
+    border-radius: 3px;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D0D0D0;
+}
+
+.event-bar {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 1rem;
+}
+
+.event-title {
+    flex: 3;
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.event-infos {
+    flex: 2;
+}
+
+.event-infos-right {
+
+}
+
+.event-description {
+
+}
+
+.event-date {
+    padding-right: 0.5rem;
+    font-weight: bolder;
+}
+
+.event-time {
+    color: #777777;
+    padding-right: 1rem;
+    font-weight: bolder;
+}
+
+.event-place {
+    font-size: 0.9rem;
+    color: #444444;
+    padding-top: 0.5rem;
+}
+
+.event-buttons {
+    padding: 0.5rem;
+}
+
+.compact-event {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+}
+
+.compact-event-hovered {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border-radius: 3px;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D0D0D0;
+}
+
+.compact-event-bar {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 0.8rem;
+}
+
+.compact-event-infos {
+    flex: 1;
+}
+
+.compact-event-title {
+    padding-right: 5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.compact-event-author {
+    white-space: nowrap;
+    font-size: 0.9rem;
+}
+
+.compact-event-place {
+    color: #444444;
+    padding-left: 3rem;
+    font-size: 0.9rem;
+}
+
+.compact-event-date {
+    padding-right: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: bolder;
+}
+
+.compact-event-time {
+    color: #777777;
+    padding-right: 1rem;
+    font-size: 0.8rem;
+    font-weight: bolder;
+}
+
+.compact-event-buttons {
+
+}
+
+.edit-post {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 2rem;
+    border: 1px solid transparent;
+}
+
+.edit-post-title {
+
+}
+
+.edit-post-description {
+    width: 100%;
+    resize : none;
+    height: 3rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.4rem;
+}

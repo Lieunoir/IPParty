@@ -1,0 +1,40 @@
+.content-container {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    background-color: #EEEEEE;
+    height: 100%;
+    flex: 1;
+    overflow-y: auto;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    /*border-top-style: outset;
+    border-top-width: 1px;
+    border-left-style: outset;
+    border-left-width: 1px;
+    border-radius: 1px;*/
+    box-shadow: inset 0.05rem 0.05rem 0.05rem #D1C04B;
+}
+
+.content-deck {
+    max-width: 80rem;
+    background-color: #FEFEFE;
+    border-radius: 0.5rem;
+}
+
+.menu-bar {
+    background-color: #FF8552;
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    /*border-bottom-style: outset;
+    border-bottom-width: 1px;*/
+    border-bottom : 0.2rem #D1C04B solid;
+    /*border-left: 1px #000000 solid;*/
+}
