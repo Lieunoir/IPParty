@@ -33,8 +33,60 @@ div {
     background-color: #D1C04B;
 }
 
+.menu ul {
+    padding: 0;
+    margin: 0;
+}
+
 .menu h3 {
     margin: 0rem;
+}
+
+.groups-container {
+    padding: 0.2rem;
+}
+
+.group-card {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 1.90rem;
+    padding: 0 0.2rem 0 0.2rem;
+}
+
+.group-card-selected {
+    background-color: #000000;
+    border-radius: 4px;
+}
+
+.group-card-avatar {
+    flex: 0;
+    padding: 0.2rem;
+    width: 24px;
+    height: 24px;
+}
+
+.group-card-avatar img {
+    border-radius: 40px;
+    vertical-align: top;
+    background-color: #FFFFFF;
+}
+
+.group-card-title {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    vertical-align: middle;
+    min-width: 0;
+}
+
+.group-card-title-text {
+    text-align: left;
+    font-size: 1rem;
+    padding: 0 0.3rem;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
 }
 
 .user-card {
