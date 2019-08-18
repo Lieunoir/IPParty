@@ -31,7 +31,7 @@ class AuthorCard extends React.Component {
     }
 
     addDefaultSrc(ev) {
-        ev.target.src = "https://www.w3schools.com/howto/img_avatar2.png"; 
+        ev.target.src = "https://www.w3schools.com/howto/img_avatar2.png";
     }
 
     render() {

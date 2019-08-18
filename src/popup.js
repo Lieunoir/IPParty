@@ -57,16 +57,23 @@ class CreateEventPopup extends React.Component {
                     </div>
                     <div className="popup-content">
                         <form onSubmit={this.handleSubmit}>
-                            <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
-                            <input type="text" name="place" value={this.state.place} onChange={this.handleChange} />
-                            <input type="date" name="startDate" value={this.state.startDate} onChange={this.handleChange} />
-                            <input type="time" name="startTime" value={this.state.startTime} onChange={this.handleChange} />
-                            <input type="date" name="endDate" value={this.state.endDate} onChange={this.handleChange} />
-                            <input type="time" name="endTime" value={this.state.endTime} onChange={this.handleChange} />
-                            <label>
-                                Description :
+                            <div className="popup-event-title">
+                                <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
+                            </div>
+                            <div className="popup-event-place">
+                                <input type="text" name="place" value={this.state.place} onChange={this.handleChange} />
+                            </div>
+                            <div className="popup-event-start">
+                                <input type="date" name="startDate" value={this.state.startDate} onChange={this.handleChange} />
+                                <input type="time" name="startTime" value={this.state.startTime} onChange={this.handleChange} />
+                            </div>
+                            <div className="popup-event-end">
+                                <input type="date" name="endDate" value={this.state.endDate} onChange={this.handleChange} />
+                                <input type="time" name="endTime" value={this.state.endTime} onChange={this.handleChange} />
+                            </div>
+                            <div className="popup-event-description">
                                 <textarea name="description" value={this.state.description} onChange={this.handleChange} />
-                            </label>
+                            </div>
                             <input type="submit" value="Submit" />
                         </form>
                     </div>
