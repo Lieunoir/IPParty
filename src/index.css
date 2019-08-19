@@ -22,7 +22,6 @@ div {
 }
 
 .menu {
-    font-size: 1.5rem;
     width: 15rem;
     height: 100%;
     padding: 1rem;
@@ -41,19 +40,50 @@ div {
     margin: 0rem;
 }
 
+.menu-section {
+    margin: 0 0.1rem;
+    display:flex;
+    align-items: center;
+}
+
+.menu-section hr {
+    flex: 1 1 0;
+    height: 0;
+    border: none;
+    border-bottom: 1px solid #000000;
+}
+
+.menu-section-title {
+    padding: 0 0.1rem;
+    font-weight: 550;
+    font-size: 0.8rem;
+}
+
 .groups-container {
     padding: 0.2rem;
 }
 
 .group-card {
+    margin: 1px;
     display: flex;
     align-items: center;
     cursor: pointer;
     height: 1.90rem;
     padding: 0 0.2rem 0 0.2rem;
+    border-radius: 4px;
+}
+
+.group-card:hover {
+    background-color: #C1B03B;
 }
 
 .group-card-selected {
+    margin: 1px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 1.90rem;
+    padding: 0 0.2rem 0 0.2rem;
     background-color: #E1D05B;
     border-radius: 4px;
 }

@@ -17,6 +17,13 @@ class Menu extends React.Component {
                     <Link to="/created"><li>Created events</li></Link>
                     <Link to="/attending"><li>Attending events</li></Link>
                     <Link to="/news"><li>News</li></Link>
+                    <div className="menu-section">
+                        <hr />
+                        <div className="menu-section-title">
+                            GROUPS
+                        </div>
+                        <hr />
+                    </div>
                     <div className="groups-container">
                         <GroupCard avatar="https://tutos.apps.rezel.net/logo.png" title="Rezel"/>
                         <GroupCard avatar="https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/1011811_479976972078095_1850823628_n.png?_nc_cat=105&_nc_oc=AQkroNN4RPmAoUa2Hw2NovQSwBs8ZVS5a3uStzqNQUXGTOV-CYHGdvlCYnfKTQPb_JyM5cpntJz7wYAIytml1T3K&_nc_ht=scontent-sjc3-1.xx&oh=b081523169e8977c664e8ceb43e0b0de&oe=5E0E8186" title="C'est comme la Ludo sauf que c'est très long"/>
@@ -26,6 +33,19 @@ class Menu extends React.Component {
         );
     }
 }
+
+class MenuLinkWithoutRouter extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        this.props.history.push('/group/'+this.props.title);
+    }
+}
+
+const MenuLink = withRouter(MenuLinkWithoutRouter);
 
 class GroupCardWithoutRouter extends React.Component {
     constructor(props) {
@@ -43,7 +63,7 @@ class GroupCardWithoutRouter extends React.Component {
                 path={"/group/"+this.props.title}
                 exact={true}
                 children={({ match }) => (
-                <div className={` group-card ${match ? "group-card-selected" :""}`} onClick={this.handleClick}>
+                <div className={match ? "group-card-selected" :"group-card"} onClick={this.handleClick}>
                     <div className="group-card-avatar">
                         <img src={this.props.avatar} alt="" width="24" height="24"/>
                     </div>
