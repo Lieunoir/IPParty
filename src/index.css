@@ -29,7 +29,6 @@ div {
     padding-top: 0.5rem;
     box-sizing: border-box;
     /*border-right: 1px #C0C0C0 solid;*/
-    text-align: center;
     background-color: #D1C04B;
 }
 
@@ -55,7 +54,7 @@ div {
 }
 
 .group-card-selected {
-    background-color: #000000;
+    background-color: #E1D05B;
     border-radius: 4px;
 }
 
