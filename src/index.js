@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import { PostWithComments } from './posts.js';
 import EventList from './eventList.js';
 import EventView from './eventView.js';
@@ -9,14 +9,22 @@ import './index.css';
 class Menu extends React.Component {
     render() {
         return (
-            <div className="menu">
-                <UserCard username="Colin" />
-                <h3>Partyline Events</h3>
-                <ul>
-                    <li>Create Event</li>
-                    <Link to="/created"><li>Created events</li></Link>
-                    <Link to="/attending"><li>Attending events</li></Link>
-                    <Link to="/news"><li>News</li></Link>
+            <div className="menu-container">
+                <div className="user-card-container">
+                    <UserCard username="Colin" />
+                </div>
+                <div className="menu">
+                    <MenuLink label="Create event" path="/create"/>
+                    <div className="menu-section">
+                        <hr />
+                        <div className="menu-section-title">
+                            EVENTS
+                        </div>
+                        <hr />
+                    </div>
+                    <MenuLink label="Created events" path="/created"/>
+                    <MenuLink label="Attending events" path="/attending"/>
+                    <MenuLink label="News" path="/news"/>
                     <div className="menu-section">
                         <hr />
                         <div className="menu-section-title">
@@ -28,7 +36,7 @@ class Menu extends React.Component {
                         <GroupCard avatar="https://tutos.apps.rezel.net/logo.png" title="Rezel"/>
                         <GroupCard avatar="https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/1011811_479976972078095_1850823628_n.png?_nc_cat=105&_nc_oc=AQkroNN4RPmAoUa2Hw2NovQSwBs8ZVS5a3uStzqNQUXGTOV-CYHGdvlCYnfKTQPb_JyM5cpntJz7wYAIytml1T3K&_nc_ht=scontent-sjc3-1.xx&oh=b081523169e8977c664e8ceb43e0b0de&oe=5E0E8186" title="C'est comme la Ludo sauf que c'est très long"/>
                     </div>
-                </ul>
+                </div>
             </div>
         );
     }
@@ -41,7 +49,23 @@ class MenuLinkWithoutRouter extends React.Component {
     }
 
     handleClick() {
-        this.props.history.push('/group/'+this.props.title);
+        this.props.history.push(this.props.path);
+    }
+
+    render() {
+        return (
+            <Route
+                path={this.props.path}
+                exact={true}
+                children={({ match }) => (
+                <div className={match ? "menu-link-selected" :"menu-link"} onClick={this.handleClick}>
+                    <div className="menu-link-text">
+                        {this.props.label}
+                    </div>
+                </div>
+                )}
+            />
+        );
     }
 }
 
