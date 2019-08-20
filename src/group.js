@@ -1,14 +1,13 @@
 import React from 'react';
 import CreateEventPopup from './popup.js';
-import {CompactEvent} from './event.js';
 import './container.css';
 
-class EventBar extends React.Component {
+class GroupBar extends React.Component {
     render() {
         return (
             <div className="menu-bar">
                 <div className="menu-bar-text">
-                    Event List
+                    {this.props.name}
                 </div>
             </div>
         );
@@ -21,8 +20,8 @@ class EventList extends React.Component {
         this.state = {
             error: null,
             isLoaded: false,
-            events: [],
             showPopup: false,
+            name: "",
         };
         this.togglePopup = this.togglePopup.bind(this);
         this.updateList = this.updateList.bind(this);
@@ -35,52 +34,26 @@ class EventList extends React.Component {
     }
 
     updateList() {
-        fetch("/partyline/events")
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        events: result
-                    });
-                },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
+        this.setState({
+            name: "Rezel",
+        });
     }
 
     componentDidMount() {
-        fetch("/partyline/events")
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        events: result
-                    });
-                },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
+        this.setState({
+            name: "Rezel",
+        });
     }
 
     render() {
-        const { error, isLoaded, events} = this.state;
+        const { error, isLoaded, name } = this.state;
 
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
             return (
                 <div className="content-container">
-                    <EventBar />
+                    <GroupBar name="..."/>
                     <div className="content">
                         <div>Loading...</div>
                     </div>
@@ -89,20 +62,9 @@ class EventList extends React.Component {
         } else {
             return (
                 <div className="content-container">
-                    <EventBar />
+                    <GroupBar name={name}/>
                     <div className="content">
                         <div className="content-deck">
-                            {events.map(event => (
-                                <CompactEvent
-                                    title={event.title}
-                                    author={event.author.id}
-                                    description={event.description}
-                                    startTime={event.startTime}
-                                    endTime={event.endTime}
-                                    place={event.place}
-                                    uuid={event.uuid}
-                                />
-                            ))}
                         </div>
                     </div>
                     {this.state.showPopup ?

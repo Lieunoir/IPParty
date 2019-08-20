@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import { PostWithComments } from './posts.js';
 import EventList from './eventList.js';
 import EventView from './eventView.js';
+import GroupView from './group.js';
 import './index.css';
 
 class Menu extends React.Component {
@@ -125,6 +126,7 @@ class App extends React.Component {
                     <Route path="/event/:uuid" component={EventView} />
                     <Route path="/test" exact component={EventList} />
                     <Route path="/post/:uuid" exact component={PostWithComments} />
+                    <Route path="/group/:uuid" exact component={GroupView} />
                 </Router>
             </div>
         );

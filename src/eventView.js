@@ -17,7 +17,7 @@ class EventViewBar extends React.Component {
     }
 }
 
-class EventView extends React.Component {
+class GroupView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -127,4 +127,4 @@ class EventView extends React.Component {
 
 }
 
-export default EventView;
+export default GroupView;
