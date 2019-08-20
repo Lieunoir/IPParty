@@ -8,8 +8,9 @@ class EventBar extends React.Component {
     render() {
         return (
             <div className="menu-bar">
-                <Button onClick={this.props.onClick} text="Create Event" message="create" />
-                {this.props.eventTitle==="" ? "Text du Menu Ici" : "Hovered : " + this.props.eventTitle}
+                <div className="menu-bar-text">
+                    Event List
+                </div>
             </div>
         );
     }
@@ -25,13 +26,8 @@ class EventList extends React.Component {
             hoveredEvent: "",
             showPopup: false,
         };
-        this.hoverEvent = this.hoverEvent.bind(this);
         this.togglePopup = this.togglePopup.bind(this);
         this.updateList = this.updateList.bind(this);
-    }
-
-    hoverEvent(title) {
-        this.setState({hoveredEvent: title});
     }
 
     togglePopup(event) {
@@ -107,7 +103,6 @@ class EventList extends React.Component {
                                     endTime={event.endTime}
                                     place={event.place}
                                     uuid={event.uuid}
-                                    hoverEvent={this.hoverEvent}
                                 />
                             ))}
                         </div>

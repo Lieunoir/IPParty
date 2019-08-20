@@ -31,8 +31,12 @@
     background-color: #D0D03F;
     width: 100%;
     padding: 0.5rem;
+    padding-left: 5rem;
     height: 2.5rem;
     box-sizing: border-box;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
     /*border-bottom-style: outset;
     border-bottom-width: 1px;
     border-bottom : 0.2rem #D1C04B solid;

@@ -33,11 +33,9 @@ class CompactEventWithoutRouter extends React.Component {
     }
 
     toggleHover() {
-        const title = this.props.title;
         this.setState({
             hovered: !this.state.hovered,
         })
-        this.props.hoverEvent(title);
     }
 
 
