@@ -26,7 +26,7 @@ div {
     height: 100%;
     box-sizing: border-box;
     /*border-right: 1px #C0C0C0 solid;*/
-    background-color: #D1C04B;
+    background-color: #C9D85B;
     border-style: solid;
     border-width: 0 1px 0px 0;
     border-color: #606060;
@@ -35,7 +35,7 @@ div {
 .menu {
     padding: 1rem;
     padding-top: 1.8rem;
-    background-color: #D1C04B;
+    color: #202020;
 }
 
 .menu ul {
@@ -64,6 +64,7 @@ div {
     padding: 0 0.3rem;
     font-weight: 550;
     font-size: 0.8rem;
+    color: #837200;
 }
 
 .menu-link {
@@ -74,6 +75,7 @@ div {
     height: 1.90rem;
     padding: 0 0.2rem 0 0.2rem;
     border-radius: 4px;
+    color: #533400;
 }
 
 .menu-link:hover {
@@ -87,12 +89,9 @@ div {
     cursor: pointer;
     height: 1.90rem;
     padding: 0 0.2rem 0 0.2rem;
-    background-color: #E1D05B;
+    background-color: #E9F87B;
     border-radius: 4px;
-}
-
-.menu-link-text {
-    vertical-align: middle;
+    color: #533400;
 }
 
 .groups-container {
@@ -120,7 +119,7 @@ div {
     cursor: pointer;
     height: 1.90rem;
     padding: 0 0.2rem 0 0.2rem;
-    background-color: #E1D05B;
+    background-color: #E9F87B;
     border-radius: 4px;
 }
 
@@ -151,18 +150,21 @@ div {
     white-space: nowrap;
     overflow-x: hidden;
     text-overflow: ellipsis;
+    color: #533400;
 }
 
 .user-card-container {
     height: 2.5rem;
     padding: 0.5rem;
-    background-color: #FF8552;
+    background-color: #D0D03F;
     box-sizing: border-box;
-    border-bottom : 1px #606060 solid;
+    display: flex;
+    align-items: center;
 }
 
 .user-card {
-    margin: auto;
+    font-size: 1.3rem;
+    font-weight: 650;
     border-radius: 1px;
 }
 

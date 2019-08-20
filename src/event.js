@@ -54,59 +54,57 @@ class CompactEventWithoutRouter extends React.Component {
         const buttonStyle = this.state.hovered ? {} : {visibility: "hidden"};
         return (
             <div className={this.state.hovered ? "compact-event-hovered" : "compact-event"} onClick={this.handleClick} onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}>
-                <div className="compact-event-bar">
-                    <div className="compact-event-infos">
-                        <div className="compact-event-infos-1">
-                            <span className="compact-event-title">
-                                {this.props.title}
-                            </span>
-                            <span className="compact-event-author">
-                                <AuthorCard uuid={this.props.author}/>
-                            </span>
-                        </div>
-                        <div className="compact-event-infos-2">
-                            { this.state.startDate === this.state.endDate ?
-                                (
-                                    <>
-                                        <span className="compact-event-date">
-                                            {this.state.startDate}
-                                        </span>
-                                        <span className="compact-event-time">
-                                            {this.state.startTime}
-                                        -
-                                            {this.state.endTime}
-                                        </span>
-                                    </>
-                                ) : (
-                                    <>
-                                        <span className="compact-event-date">
-                                            {this.state.startDate}
-                                        </span>
-                                        <span className="compact-event-time">
-                                            {this.state.startTime}
-                                        </span>
-                                        -
-                                        <span className="compact-event-date">
-                                            {this.state.endDate}
-                                        </span>
-                                        <span className="compact-event-time">
-                                            {this.state.endTime}
-                                        </span>
-                                    </>
-                                )
-                            }
-                            <span className="compact-event-place">
-                                {this.props.place}
-                            </span>
-                        </div>
+                <div className="compact-event-infos">
+                    <div className="compact-event-infos-1">
+                        <span className="compact-event-title">
+                            {this.props.title}
+                        </span>
+                        <span className="compact-event-author">
+                            <AuthorCard uuid={this.props.author}/>
+                        </span>
                     </div>
-                    <div className="compact-event-buttons">
-                        <button onClick={this.handleClick2} style={buttonStyle}>Edit</button>
-                        <button onClick={this.handleClick2} style={buttonStyle}>Delete</button>
+                    <div className="compact-event-description">
+                        {this.props.description}
+                    </div>
+                    <div className="compact-event-infos-2">
+                        { this.state.startDate === this.state.endDate ?
+                            (
+                                <>
+                                    <span className="compact-event-date">
+                                        {this.state.startDate}
+                                    </span>
+                                    <span className="compact-event-time">
+                                        {this.state.startTime}
+                                    -
+                                        {this.state.endTime}
+                                    </span>
+                                </>
+                            ) : (
+                                <>
+                                    <span className="compact-event-date">
+                                        {this.state.startDate}
+                                    </span>
+                                    <span className="compact-event-time">
+                                        {this.state.startTime}
+                                    </span>
+                                    -
+                                    <span className="compact-event-date">
+                                        {this.state.endDate}
+                                    </span>
+                                    <span className="compact-event-time">
+                                        {this.state.endTime}
+                                    </span>
+                                </>
+                            )
+                        }
+                        <span className="compact-event-place">
+                            {this.props.place}
+                        </span>
                     </div>
                 </div>
-                <div className="compact-event-description">
-                    {this.props.description}
+                <div className="compact-event-buttons">
+                    <button onClick={this.handleClick2} style={buttonStyle}>Edit</button>
+                    <button onClick={this.handleClick2} style={buttonStyle}>Delete</button>
                 </div>
             </div>
         );

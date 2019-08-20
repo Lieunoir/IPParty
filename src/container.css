@@ -19,22 +19,16 @@
     border-left-style: outset;
     border-left-width: 1px;
     border-radius: 1px;*/
-    border-left-width: 0px;
-    border-top-width: 0px;
-    border-bottom-width: 0;
-    border-right-width: 0;
-    border-style: solid;
-    border-color: #606060;
 }
 
 .content-deck {
     max-width: 80rem;
-    background-color: #FEFEFE;
-    border-radius: 0.2rem;
+    /*background-color: #FEFEFE;*/
+    height: 100%;
 }
 
 .menu-bar {
-    background-color: #FF8552;
+    background-color: #D0D03F;
     width: 100%;
     padding: 0.5rem;
     height: 2.5rem;
@@ -43,5 +37,4 @@
     border-bottom-width: 1px;
     border-bottom : 0.2rem #D1C04B solid;
     border-left: 1px #000000 solid;*/
-    border-bottom : 1px #606060 solid;
 }
