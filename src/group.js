@@ -1,5 +1,4 @@
 import React from 'react';
-import CreateEventPopup from './popup.js';
 import './container.css';
 
 class GroupBar extends React.Component {
@@ -20,17 +19,9 @@ class EventList extends React.Component {
         this.state = {
             error: null,
             isLoaded: true,
-            showPopup: false,
             name: "",
         };
-        this.togglePopup = this.togglePopup.bind(this);
         this.updateList = this.updateList.bind(this);
-    }
-
-    togglePopup(event) {
-        this.setState({
-            showPopup: !this.state.showPopup
-        });
     }
 
     updateList() {
@@ -67,14 +58,6 @@ class EventList extends React.Component {
                         <div className="content-deck">
                         </div>
                     </div>
-                    {this.state.showPopup ?
-                    <CreateEventPopup
-                        text='Click "Close Button" to hide popup'
-                        closePopup={this.togglePopup.bind(this)}
-                        onUpdate={this.updateList}
-                    />
-                    : null
-                    }
                 </div>
             );
         }

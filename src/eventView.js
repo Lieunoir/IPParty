@@ -25,7 +25,6 @@ class GroupView extends React.Component {
             isLoaded: false,
             event: null,
             hoveredEvent: "",
-            showCreateEventPopup: false,
             showEditEventPopup: false,
         };
         this.togglePopup = this.togglePopup.bind(this);

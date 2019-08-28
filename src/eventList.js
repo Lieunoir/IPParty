@@ -1,5 +1,4 @@
 import React from 'react';
-import CreateEventPopup from './popup.js';
 import {CompactEvent} from './event.js';
 import './container.css';
 
@@ -24,14 +23,7 @@ class EventList extends React.Component {
             events: [],
             showPopup: false,
         };
-        this.togglePopup = this.togglePopup.bind(this);
         this.updateList = this.updateList.bind(this);
-    }
-
-    togglePopup(event) {
-        this.setState({
-            showPopup: !this.state.showPopup
-        });
     }
 
     updateList() {
@@ -105,14 +97,6 @@ class EventList extends React.Component {
                             ))}
                         </div>
                     </div>
-                    {this.state.showPopup ?
-                    <CreateEventPopup
-                        text='Click "Close Button" to hide popup'
-                        closePopup={this.togglePopup.bind(this)}
-                        onUpdate={this.updateList}
-                    />
-                    : null
-                    }
                 </div>
             );
         }
