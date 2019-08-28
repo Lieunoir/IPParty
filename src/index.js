@@ -8,6 +8,10 @@ import GroupView from './group.js';
 import './index.css';
 
 class Menu extends React.Component {
+    create_event() {
+
+    }
+
     render() {
         return (
             <div className="menu-container">
@@ -15,7 +19,8 @@ class Menu extends React.Component {
                     <UserCard username="Colin" />
                 </div>
                 <div className="menu">
-                    <MenuLink label="Create event" path="/create"/>
+                    <MenuBigButton label="CREATE EVENT" handleClick={this.create_event}/>
+                    <MenuLink label="Home" path="/"/>
                     <div className="menu-section">
                         <hr />
                         <div className="menu-section-title">
@@ -71,6 +76,27 @@ class MenuLinkWithoutRouter extends React.Component {
 }
 
 const MenuLink = withRouter(MenuLinkWithoutRouter);
+
+class MenuBigButton extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        this.props.handleClick();
+    }
+
+    render() {
+        return (
+            <div className="menu-button-big" onClick={this.handleClick}>
+                <div className="menu-button-big-text">
+                    {this.props.label}
+                </div>
+            </div>
+        );
+    }
+}
 
 class GroupCardWithoutRouter extends React.Component {
     constructor(props) {

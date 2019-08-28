@@ -19,7 +19,7 @@ class EventList extends React.Component {
         super(props);
         this.state = {
             error: null,
-            isLoaded: false,
+            isLoaded: true,
             showPopup: false,
             name: "",
         };

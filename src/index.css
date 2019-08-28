@@ -94,6 +94,27 @@ div {
     color: #533400;
 }
 
+.menu-button-big {
+    display: flex;
+    margin: 0 2px 0.5rem 2px;
+    align-items: center;
+    cursor: pointer;
+    height: 3rem;
+    padding: 0 0.4rem;
+    border-radius: 4px;
+    color: #E9F87B;
+    background-color: #533400;
+}
+
+.menu-button-big:hover {
+    background-color: #634400;
+}
+
+.menu-button-big-text {
+    margin: auto;
+    font-weight: 600;
+}
+
 .groups-container {
     padding: 0.2rem;
 }
