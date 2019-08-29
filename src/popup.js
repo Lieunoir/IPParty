@@ -1,13 +1,71 @@
 import React from 'react';
 import './popup.css'
 
+class EventPopup extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            description: this.props.description,
+            title: this.props.title,
+            place: this.props.place,
+            uuid: this.props.uuid,
+        };
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({ [event.target.name]: event.target.value });
+        this.props.handleChange(event);
+    }
+
+    render() {
+        return (
+            <div className='popup'>
+                <div className='popup-inner'>
+                    <div className="popup-header">
+                        <div className="popup-header-text">
+                            {this.props.text}
+                        </div>
+                        <div className="popup-header-button">
+                            <button onClick={this.props.closePopup}>Close</button>
+                        </div>
+                    </div>
+                    <div className="popup-content">
+                        <form onSubmit={this.props.handleSubmit}>
+                            <div className="popup-event-title">
+                                <input type="text" name="title" value={this.state.title} placeholder="Title" onChange={this.handleChange} />
+                            </div>
+                            <div className="popup-event-place">
+                                <input type="text" name="place" value={this.state.place} placeholder="Place" onChange={this.handleChange} />
+                            </div>
+                            <div className="popup-event-start">
+                                <input type="date" name="startDate" value={this.state.startDate} onChange={this.handleChange} />
+                                <input type="time" name="startTime" value={this.state.startTime} onChange={this.handleChange} />
+                            </div>
+                            <div className="popup-event-end">
+                                <input type="date" name="endDate" value={this.state.endDate} onChange={this.handleChange} />
+                                <input type="time" name="endTime" value={this.state.endTime} onChange={this.handleChange} />
+                            </div>
+                            <div className="popup-event-description">
+                                <textarea name="description" value={this.state.description} placeholder="Description" onChange={this.handleChange} />
+                            </div>
+                            <input type="submit" value="Submit" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
+
 class CreateEventPopup extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            description: "Description.",
-            title: "Title",
-            place: "Place",
+            description: "",
+            title: "",
+            place: "",
+            uuid: "",
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,6 +76,7 @@ class CreateEventPopup extends React.Component {
     }
 
     handleSubmit(event) {
+        event.preventDefault();
         fetch('/partyline/events/new', {
             method: 'POST',
             headers: {
@@ -38,47 +97,12 @@ class CreateEventPopup extends React.Component {
                 }
             })
         });
-        this.props.onUpdate();
         alert("Submitted");
-        event.preventDefault();
     }
 
     render() {
         return (
-            <div className='popup'>
-                <div className='popup-inner'>
-                    <div className="popup-header">
-                        <div className="popup-header-text">
-                            {this.props.text}
-                        </div>
-                        <div className="popup-header-button">
-                            <button onClick={this.props.closePopup}>Close</button>
-                        </div>
-                    </div>
-                    <div className="popup-content">
-                        <form onSubmit={this.handleSubmit}>
-                            <div className="popup-event-title">
-                                <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
-                            </div>
-                            <div className="popup-event-place">
-                                <input type="text" name="place" value={this.state.place} onChange={this.handleChange} />
-                            </div>
-                            <div className="popup-event-start">
-                                <input type="date" name="startDate" value={this.state.startDate} onChange={this.handleChange} />
-                                <input type="time" name="startTime" value={this.state.startTime} onChange={this.handleChange} />
-                            </div>
-                            <div className="popup-event-end">
-                                <input type="date" name="endDate" value={this.state.endDate} onChange={this.handleChange} />
-                                <input type="time" name="endTime" value={this.state.endTime} onChange={this.handleChange} />
-                            </div>
-                            <div className="popup-event-description">
-                                <textarea name="description" value={this.state.description} onChange={this.handleChange} />
-                            </div>
-                            <input type="submit" value="Submit" />
-                        </form>
-                    </div>
-                </div>
-            </div>
+            <EventPopup text="Create new event" title="" description="" place="" uuid="" handleSubmit={this.handleSubmit} handleChange={this.handleChange} closePopup={this.props.closePopup} />
         );
     }
 }
@@ -94,7 +118,6 @@ class EditEventPopup extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleClose = this.handleClose.bind(this);
     }
 
     handleChange(event) {
@@ -102,6 +125,7 @@ class EditEventPopup extends React.Component {
     }
 
     handleSubmit(event) {
+        event.preventDefault();
         fetch('/partyline/events/edit', {
             method: 'PATCH',
             headers: {
@@ -124,42 +148,11 @@ class EditEventPopup extends React.Component {
             })
         });
         alert("Submitted");
-        event.preventDefault();
-    }
-
-    handleClose() {
-        this.props.closePopup("edit");
     }
 
     render() {
         return (
-            <div className='popup'>
-                <div className='popup-inner'>
-                    <div className="popup-header">
-                        <div className="popup-header-text">
-                            {this.props.text}
-                        </div>
-                        <div className="popup-header-button">
-                            <button onClick={this.handleClose}>Close</button>
-                        </div>
-                    </div>
-                    <div className="popup-content">
-                        <form onSubmit={this.handleSubmit}>
-                            <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
-                            <input type="text" name="place" value={this.state.place} onChange={this.handleChange} />
-                            <input type="date" name="startDate" value={this.state.startDate} onChange={this.handleChange} />
-                            <input type="time" name="startTime" value={this.state.startTime} onChange={this.handleChange} />
-                            <input type="date" name="endDate" value={this.state.endDate} onChange={this.handleChange} />
-                            <input type="time" name="endTime" value={this.state.endTime} onChange={this.handleChange} />
-                            <label>
-                                Description :
-                                <textarea name="description" value={this.state.description} onChange={this.handleChange} />
-                            </label>
-                            <input type="submit" value="Submit" />
-                        </form>
-                    </div>
-                </div>
-            </div>
+            <EventPopup text="Create new event" title={this.props.title} description={this.props.description} place={this.props.place} uuid={this.props.uuid} handleSubmit={this.handleSubmit} handleChange={this.handleChange} closePopup={this.props.closePopup} />
         );
     }
 }
