@@ -1,0 +1,19 @@
+.tags-search-text {
+    max-width: 60%;
+}
+
+.tags-search-button-span {
+    padding: 5px;
+}
+
+.tags-search-button {
+    max-width: 30%;
+}
+
+.tags-widget {
+    background-color: #EEEEEE;
+    margin: 0.1rem;
+    padding: 0.3rem 0.7rem;
+    float: left;
+    border-radius: 4px;
+}
