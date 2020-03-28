@@ -60,7 +60,7 @@ class GroupView extends React.Component {
                     this.setState({
                         isLoaded: true,
                         event: {"author":{"nodeId":"ens-paris-saclay","type":"user","uuid":"da6f5b68-ec77-41fe-baeb-a2e96d9ae0aa"},"children":[],"description":"Venons célebrer l'amitiée Franco-Allemande avec les étudiant⋅e⋅s d'Outre-Rhin en résidence à CentraleSupélec !","endTime":"2019-04-13T19:58:16Z","nodeId":"centrale-supelec","place":"9 rue Joliot Curie, 91190 Gif-sur-Yvette","startTime":"2019-04-13T17:58:16Z","title":"Große Binouze Franco-Allemande","uuid":"fed1abcc-1a67-484d-8c13-5957993544dd"},
-                        error
+                        //error
                     });
                 }
             )
