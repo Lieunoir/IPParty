@@ -43,10 +43,20 @@ class TagsSelector extends React.Component {
 }
 
 class TagWidget extends React.Component {
+	constructor(props) {
+		super(props);
+		this.handleClick = this.handleClick.bind(this);
+	}
+
+	handleClick() {
+		this.props.removeTag(this.props.name);
+	}
+
     render() {
         return(
             <span className="tags-widget">
                 {this.props.name}
+                <span onClick={this.handleClick} className="tags-widget-delete"></span>
             </span>
         )
     }
@@ -59,6 +69,7 @@ class TagsMenu extends React.Component {
             tagList: props.tagList
         };
         this.addTag = this.addTag.bind(this);
+        this.removeTag = this.removeTag.bind(this);
     }
 
     addTag(name) {
@@ -67,12 +78,18 @@ class TagsMenu extends React.Component {
         });
     }
 
+	removeTag(name) {
+		this.setState({
+			tagList: this.state.tagList.filter(tag => tag.name !== name)
+		});
+	}
+
     render() {
         return(
             <div>
                 <TagsSelector addTag={this.addTag}/>
                 {this.state.tagList.map(tag => (
-                    <TagWidget name={tag.name} />
+                    <TagWidget removeTag={this.removeTag} name={tag.name} />
                 ))}
             </div>
         )

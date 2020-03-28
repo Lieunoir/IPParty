@@ -17,3 +17,19 @@
     float: left;
     border-radius: 4px;
 }
+
+.tags-widget-delete {
+    cursor: pointer;
+    background-color: #AAAAAA;
+    border-radius: 50%;
+    margin-left: 5px;
+	display: inline-block;
+	line-height: 0px;
+    padding: 10px 5px;
+    font-weight: bold;
+}
+
+.tags-widget-delete:before {
+    content: "×";
+}
+

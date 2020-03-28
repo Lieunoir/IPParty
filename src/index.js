@@ -46,12 +46,12 @@ class Menu extends React.Component {
                     <div className="menu-section">
                         <hr />
                         <div className="menu-section-title">
-                            TAGS
+                            FOLLOWED
                         </div>
                         <hr />
                     </div>
                     <div className="tags-container">
-                        <TagsMenu tagList={[{"name": "Art"}, {"name": "Comete"}, {"name": "BDE Telecom"}, {"name": "IGR203"}, ]}/>
+                        <TagsMenu tagList={[{"name": "Art"}, {"name": "Comete"}, {"name": "BDE Telecom"}, {"name": "IGR203"}]}/>
                     </div>
                 </div>
                     {this.state.showPopup ?
