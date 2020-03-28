@@ -7,6 +7,7 @@ import EventList from './eventList.js';
 import EventView from './eventView.js';
 import GroupView from './group.js';
 import Login from './login.js';
+import TagsMenu from './tagsMenu.js';
 import './index.css';
 
 class Menu extends React.Component {
@@ -32,7 +33,6 @@ class Menu extends React.Component {
                 </div>
                 <div className="menu">
                     <MenuBigButton label="CREATE EVENT" handleClick={this.togglePopup}/>
-                    <MenuLink label="Home" path="/"/>
                     <div className="menu-section">
                         <hr />
                         <div className="menu-section-title">
@@ -40,19 +40,18 @@ class Menu extends React.Component {
                         </div>
                         <hr />
                     </div>
-                    <MenuLink label="Created events" path="/created"/>
-                    <MenuLink label="Attending events" path="/attending"/>
+                    <MenuLink label="Home" path="/"/>
+                    <MenuLink label="My Events" path="/created"/>
                     <MenuLink label="News" path="/news"/>
                     <div className="menu-section">
                         <hr />
                         <div className="menu-section-title">
-                            GROUPS
+                            TAGS
                         </div>
                         <hr />
                     </div>
-                    <div className="groups-container">
-                        <GroupCard avatar="https://tutos.apps.rezel.net/logo.png" title="Rezel"/>
-                        <GroupCard avatar="https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/1011811_479976972078095_1850823628_n.png?_nc_cat=105&_nc_oc=AQkroNN4RPmAoUa2Hw2NovQSwBs8ZVS5a3uStzqNQUXGTOV-CYHGdvlCYnfKTQPb_JyM5cpntJz7wYAIytml1T3K&_nc_ht=scontent-sjc3-1.xx&oh=b081523169e8977c664e8ceb43e0b0de&oe=5E0E8186" title="C'est comme la Ludo sauf que c'est très long"/>
+                    <div className="tags-container">
+                        <TagsMenu tagList={[{"name": "Art"}, {"name": "Comete"}, {"name": "BDE Telecom"}, {"name": "IGR203"}, ]}/>
                     </div>
                 </div>
                     {this.state.showPopup ?
