@@ -167,7 +167,7 @@ class App extends React.Component {
         this.state = {
             logged: false,
         };
-    this.login = this.login.bind(this);
+        this.login = this.login.bind(this);
     }
 
     login() {
