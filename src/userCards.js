@@ -23,7 +23,8 @@ class AuthorCard extends React.Component {
                 (error) => {
                     this.setState({
                         isLoaded: true,
-                        error
+                        author: {"displayName":"Stéphanie Da Cunha","email":"s.dacunha@crans.org","photo":"https://assets.crans.org/s.dacunha/photo.jpg","node_id":"ens-paris-saclay"},
+                        //error
                     });
                 }
             )
