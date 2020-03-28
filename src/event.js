@@ -255,7 +255,8 @@ class EventWithPostWithoutRouter extends React.Component {
     }
 
     handleSubmit(event) {
-        fetch('/partyline/posts/new', {
+        fetch('/api/posts/new', {
+            credentials: 'include',
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

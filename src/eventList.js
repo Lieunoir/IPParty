@@ -27,7 +27,8 @@ class EventList extends React.Component {
     }
 
     updateList() {
-        fetch("/partyline/events")
+        fetch("/api/event", {
+            credentials: 'include'})
             .then(res => res.json())
             .then(
                 (result) => {
@@ -46,7 +47,8 @@ class EventList extends React.Component {
     }
 
     componentDidMount() {
-        fetch("/partyline/events")
+        fetch("/api/event", {
+            credentials: 'include'})
             .then(res => res.json())
             .then(
                 (result) => {
