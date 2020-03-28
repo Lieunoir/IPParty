@@ -6,6 +6,7 @@ import CreateEventPopup from './popup.js';
 import EventList from './eventList.js';
 import EventView from './eventView.js';
 import GroupView from './group.js';
+import Login from './login.js';
 import './index.css';
 
 class Menu extends React.Component {
@@ -162,9 +163,26 @@ class UserCard extends React.Component {
 }
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            logged: false,
+        };
+    this.login = this.login.bind(this);
+    }
+
+    login() {
+        this.setState({
+            logged: true,
+        });
+    }
+
     render() {
+        const {logged} = this.state;
         return (
-            <div className="container">
+            <>
+            {!logged && <Login login={this.login}/>}
+            {logged && <div className="container">
                 <Router>
                     <Menu />
                     <Route path="/" exact component={EventList} />
@@ -173,7 +191,8 @@ class App extends React.Component {
                     <Route path="/post/:uuid" exact component={PostWithComments} />
                     <Route path="/group/:uuid" exact component={GroupView} />
                 </Router>
-            </div>
+            </div>}
+            </>
         );
     }
 }
