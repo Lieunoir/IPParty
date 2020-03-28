@@ -102,7 +102,7 @@ class Comment extends React.Component {
                     <div className="comment-description">
                         {this.props.description}
                     </div>
-                    {this.props.attachments.length !== 0 &&
+                    {/*{this.props.attachments.length !== 0 &&
                         <div className="comment-attachments">
                             {this.props.attachments.map(attachment => (
                                 <>
@@ -111,7 +111,7 @@ class Comment extends React.Component {
                                 </>
                             ))}
                         </div>
-                    }
+                    }*/}
                 </div>
                 { this.state.showAnswer &&
                     <div className="answer-comment">
