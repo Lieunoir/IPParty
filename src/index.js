@@ -8,6 +8,9 @@ import EventView from './eventView.js';
 import GroupView from './group.js';
 import Login from './login.js';
 import TagsMenu from './tagsMenu.js';
+import HomeView from './homeView.js';
+import NewsView from './newsView.js';
+import CreatedView from './createdView.js';
 import './index.css';
 
 class Menu extends React.Component {
@@ -184,9 +187,10 @@ class App extends React.Component {
             {logged && <div className="container">
                 <Router>
                     <Menu />
-                    <Route path="/" exact component={EventList} />
+                    <Route path="/" exact component={HomeView} />
                     <Route path="/event/:uuid" component={EventView} />
-                    <Route path="/test" exact component={EventList} />
+                    <Route path="/created" exact component={CreatedView} />
+                    <Route path="/news" exact component={NewsView} />
                     <Route path="/post/:uuid" exact component={PostWithComments} />
                     <Route path="/group/:uuid" exact component={GroupView} />
                 </Router>

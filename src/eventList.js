@@ -40,7 +40,7 @@ class EventList extends React.Component {
                 (error) => {
                     this.setState({
                         isLoaded: true,
-                        error
+                        //error
                     });
                 }
             )
