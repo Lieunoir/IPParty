@@ -1,0 +1,7 @@
+.buttonRow {
+    float: left;
+	border-style:solid;
+	border-width:thin;
+	border-color: black;
+	background-color: green;
+}

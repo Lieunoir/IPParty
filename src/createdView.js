@@ -4,7 +4,7 @@ class CreatedView extends React.Component {
     render() {
         return(
             <div className="created-view">
-                TODO : Complete
+                TODO : Complete createdView
             </div>
         );
     }
