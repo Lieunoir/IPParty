@@ -16,7 +16,7 @@ events={[
 class FilterBar extends React.Component{
 	render() {
 		return (
-			<div class="FilterBar">
+			<div class="filter-bar">
 				<InteressedRow/>
 				<SchoolRow/>
 				<EventTypeRow/>
@@ -36,19 +36,20 @@ class FilterBox extends React.Component{
 	}
 	render() {
 		return (
-			<div className="checkBox">
-			  <label>
-				<input type="checkBox" value={this.state.name} checked={this.state.check} />
-				{this.state.name}
-			  </label>
-			</div>
+            <>
+              <span className="filter-bar-checkbox">
+                <input type="checkBox" value={this.state.name} checked={this.state.check} />
+                {this.state.name}
+              </span>
+              <br/>
+            </>
 		)
 	}
 }
 class InteressedRow extends React.Component{
 	render() {
 		return(
-			<form class='buttonRow'>
+			<form class='filter-button-row'>
 			  <FilterBox name = 'All' check = 'true'/>
 			  <FilterBox name = 'Interessed' />
 			  <FilterBox name = 'Participate' />
@@ -60,7 +61,7 @@ class InteressedRow extends React.Component{
 class SchoolRow extends React.Component{
 	render() {
 		return(
-			<form class='buttonRow'>
+			<form class='filter-button-row'>
 			  <FilterBox name = 'All' check = 'true'/>
 			  <FilterBox name = 'Télécom'/>
 			  <FilterBox name = 'X'/>
@@ -74,7 +75,7 @@ class SchoolRow extends React.Component{
 class EventTypeRow extends React.Component{
 	render() {
 		return(
-			<form class='buttonRow'>
+			<form class='filter-button-row'>
 			  <FilterBox name = 'All' check = 'true'/>
 			  <FilterBox name = 'Art'/>
 			  <FilterBox name = 'Cinema'/>
@@ -88,22 +89,24 @@ class EventTypeRow extends React.Component{
 class OtherRow extends React.Component {
 	render() {
 		return (
-			<form class='buttonRow'>
-				<div> Other :</div>
-				<div class="selectionBox">
-				  <select>
-				    <option value="0">None</option>
-				    <option value="1">IGR</option>
-				    <option value="2">JMThierry</option>
-				    <option value="3">Takumi</option>
-				    <option value="4">Comete</option>
-				    <option value="5">Binouze</option>
-				    <option value="6">CoronaParty</option>
-				    <option value="7">LudoRave</option>
-				    <option value="8">TagRandom</option>
-				    <option value="9">...</option>
-				  </select>
-				</div>
+			<form class='filter-button-row'>
+
+				<div> Other :
+                    <div class="selectionBox">
+                      <select>
+                        <option value="0">None</option>
+                        <option value="1">IGR</option>
+                        <option value="2">JMThierry</option>
+                        <option value="3">Takumi</option>
+                        <option value="4">Comete</option>
+                        <option value="5">Binouze</option>
+                        <option value="6">CoronaParty</option>
+                        <option value="7">LudoRave</option>
+                        <option value="8">TagRandom</option>
+                        <option value="9">...</option>
+                      </select>
+                    </div>
+                </div>
 			</form>
 		)
 	}
