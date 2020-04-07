@@ -24,46 +24,97 @@ class FilterBar extends React.Component{
 			]
 		}
 	}
-	renderRow(i) {
-		return(
-			<ButtonRow/>
-		)
-	}
+
 	render() {
 		return (
 			<div class="FilterBar">
-				{this.renderRow(0)}
-				{this.renderRow(1)}
-				{this.renderRow(2)}
+				<InteressedRow/>
+				<SchoolRow/>
+				<EventTypeRow/>
+				<OtherRow/>
 			</div>
 		);
 	}
 }
 
-class ButtonRow extends React.Component{
-
+class FilterBox extends React.Component{
+	constructor(props) {
+		super(props);
+		this.state = {
+			name: props.name,
+			check: props.check
+		}
+	}
+	render() {
+		return (
+			<div className="checkBox">
+			  <label>
+				<input type="checkBox" value={this.state.name} checked={this.state.check} />
+				{this.state.name}
+			  </label>
+			</div>
+		)
+	}
+}
+class InteressedRow extends React.Component{
 	render() {
 		return(
 			<form class='buttonRow'>
-			  <div className="checkBox">
-				<label>
-				  <input type="checkBox" value="option1" checked={true} />
-				  Option 1
-				</label>
-			  </div>
-			  <div className="checkBox">
-				<label>
-				  <input type="checkBox" value="option1" checked={true} />
-				  Option 1
-				</label>
-			  </div>
-			  <div className="checkBox">
-				<label>
-				  <input type="checkBox" value="option1" checked={true} />
-				  Option 1
-				</label>
-			  </div>
-
+			  <FilterBox name = 'All' check = 'true'/>
+			  <FilterBox name = 'Interessed' />
+			  <FilterBox name = 'Participate' />
+			  <FilterBox name = 'Maybe'/>
+			</form>
+		)
+	}
+}
+class SchoolRow extends React.Component{
+	render() {
+		return(
+			<form class='buttonRow'>
+			  <FilterBox name = 'All' check = 'true'/>
+			  <FilterBox name = 'Télécom'/>
+			  <FilterBox name = 'X'/>
+			  <FilterBox name = 'ENSTA'/>
+			  <FilterBox name = 'ENSAE'/>
+			  <FilterBox name = "Sup'Optique"/>
+			</form>
+		)
+	}
+}
+class EventTypeRow extends React.Component{
+	render() {
+		return(
+			<form class='buttonRow'>
+			  <FilterBox name = 'All' check = 'true'/>
+			  <FilterBox name = 'Art'/>
+			  <FilterBox name = 'Cinema'/>
+			  <FilterBox name = 'Party'/>
+			  <FilterBox name = 'Music'/>
+			  <FilterBox name = 'Afterwork'/>
+			</form>
+		)
+	}
+}
+class OtherRow extends React.Component {
+	render() {
+		return (
+			<form class='buttonRow'>
+				<div> Other :</div>
+				<div class="selectionBox">
+				  <select>
+				    <option value="0">None</option>
+				    <option value="1">IGR</option>
+				    <option value="2">JMThierry</option>
+				    <option value="3">Takumi</option>
+				    <option value="4">Comete</option>
+				    <option value="5">Binouze</option>
+				    <option value="6">CoronaParty</option>
+				    <option value="7">LudoRave</option>
+				    <option value="8">TagRandom</option>
+				    <option value="9">...</option>
+				  </select>
+				</div>
 			</form>
 		)
 	}
@@ -72,7 +123,7 @@ class ButtonRow extends React.Component{
 class HomeView extends React.Component {
     render() {
         return(
-            <div className="created-view">
+            <div className="homeView">
 				<FilterBar/>
 				<p>Ceci est un calendrier normalement </p>
             </div>
