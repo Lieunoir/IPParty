@@ -14,17 +14,6 @@ events={[
 /*/
 
 class FilterBar extends React.Component{
-	constructor(props) {
-		super(props);
-		this.state = {
-			content: [
-				['Interessed','Participate','Followed'],
-				['Télécom','X','ENSTA','ENSAE','Centrale','Supop'],
-				['Party','Music','Art','Cinema','Meeting','Afterwork']
-			]
-		}
-	}
-
 	render() {
 		return (
 			<div class="FilterBar">
