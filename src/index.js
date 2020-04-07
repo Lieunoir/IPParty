@@ -46,6 +46,7 @@ class Menu extends React.Component {
                     <MenuLink label="Home" path="/"/>
                     <MenuLink label="My Events" path="/created"/>
                     <MenuLink label="News" path="/news"/>
+                    <MenuLink label="Test" path="/list"/>
                     <div className="menu-section">
                         <hr />
                         <div className="menu-section-title">
@@ -191,6 +192,7 @@ class App extends React.Component {
                     <Route path="/event/:uuid" component={EventView} />
                     <Route path="/created" exact component={CreatedView} />
                     <Route path="/news" exact component={NewsView} />
+                    <Route path="/list" exact component={EventList} />
                     <Route path="/post/:uuid" exact component={PostWithComments} />
                     <Route path="/group/:uuid" exact component={GroupView} />
                 </Router>
