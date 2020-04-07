@@ -112,7 +112,7 @@ class OtherRow extends React.Component {
 class HomeView extends React.Component {
     render() {
         return(
-            <div className="homeView">
+            <div className="content-container">
 				<FilterBar/>
 				<p>Ceci est un calendrier normalement </p>
             </div>
