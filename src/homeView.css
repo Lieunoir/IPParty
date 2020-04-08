@@ -22,3 +22,8 @@
 .filter-bar-checkbox {
     white-space: nowrap;
 }
+
+.news-calendar {
+    height: 100%;
+    margin: 5rem 10rem 5rem 5rem ;
+}

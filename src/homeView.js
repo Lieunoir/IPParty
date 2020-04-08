@@ -90,7 +90,6 @@ class OtherRow extends React.Component {
 	render() {
 		return (
 			<form class='filter-button-row'>
-
 				<div> Other :
                     <div class="selectionBox">
                       <select>
@@ -117,7 +116,9 @@ class HomeView extends React.Component {
         return(
             <div className="content-container">
 				<FilterBar/>
-				<p>Ceci est un calendrier normalement </p>
+                <div className="news-calendar">
+                    <FullCalendar defaultView="dayGridMonth" height="parent" plugins={[ dayGridPlugin ]} />
+                </div>
             </div>
         );
     }
