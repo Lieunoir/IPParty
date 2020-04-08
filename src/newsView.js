@@ -20,7 +20,6 @@ class News extends React.Component {
 
 				<div>
 					<img src={partyImage} height="80" width="80"/>
-
 				</div>
 			</div>
 		)
@@ -30,11 +29,20 @@ class News extends React.Component {
 class NewsView extends React.Component {
     render() {
         return(
-            <div className="created-view">
-				<News message='Takumi has created a New Event!'
-					image='escher1.jpg'/>
-				<News message='Takumi has created another New Event!!!!!'
-					image='../images/takumiparty.jpeg'/>
+            <div className="content-container">
+                <div className="menu-bar">
+                    <div className="menu-bar-text">
+                        News
+                    </div>
+                </div>
+                <div className="content">
+                    <div className="content-deck">
+                        <News message='Takumi has created a New Event!'
+                            image='escher1.jpg'/>
+                        <News message='Takumi has created another New Event!!!!!'
+                            image='../images/takumiparty.jpeg'/>
+                    </div>
+                </div>
             </div>
         );
     }
