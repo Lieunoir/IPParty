@@ -1,17 +1,8 @@
 import React from 'react';
 import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid'
+import timeGridPlugin from '@fullcalendar/timegrid'
 import './main.scss'
 import './homeView.css'
-//import './button.css'
-/*
-A Mettre dans <div> :
-<FullCalendar defaultView="dayGridMonth" plugins={[ dayGridPlugin ]}
-events={[
-{ title: 'event 1', date: '2019-04-01' },
-{ title: 'event 2', date: '2019-04-02' }
-]}
-/*/
 
 class FilterBar extends React.Component{
 	render() {
@@ -113,11 +104,15 @@ class OtherRow extends React.Component {
 
 class HomeView extends React.Component {
     render() {
+        const events = [
+            {title: "event-1", start: "2020-04-01T08:00:00", end:"2020-04-01T08:00:00"},
+            {title: "event-2", date: "2020-04-10", url: "/event/3d708a47-fb84-4c63-a391-26cc194ab086"},
+        ]
         return(
             <div className="content-container">
 				<FilterBar/>
                 <div className="news-calendar">
-                    <FullCalendar defaultView="dayGridMonth" height="parent" plugins={[ dayGridPlugin ]} />
+                    <FullCalendar defaultView="timeGridWeek" height="parent" plugins={[ timeGridPlugin ]} events={events}/>
                 </div>
             </div>
         );
