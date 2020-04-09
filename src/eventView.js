@@ -97,6 +97,7 @@ class GroupView extends React.Component {
                                 uuid={event.uuid}
                                 hoverEvent={this.hoverEvent}
                                 redirect={false}
+                                togglePopup={this.togglePopup}
                             />
                             <CommentList list={event.children} />
                         </div>

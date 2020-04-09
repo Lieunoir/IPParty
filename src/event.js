@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import AuthorCard from './userCards.js';
+import {EditEventPopup, DeleteEventPopup} from './popup.js';
 import './event.css';
 
 class CompactEventWithoutRouter extends React.Component {
@@ -27,9 +28,27 @@ class CompactEventWithoutRouter extends React.Component {
                 hour: "2-digit",
                 minute: "2-digit",
             }).format(new Date(Date.parse(props.endTime))),
+            showEditEventPopup: false,
+            showDeleteEventPopup: false,
         };
         this.toggleHover = this.toggleHover.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.edit = this.edit.bind(this);
+        this.delete = this.delete.bind(this);
+        this.togglePopup = this.togglePopup.bind(this);
+    }
+
+    togglePopup(event) {
+        if(event === "edit") {
+            this.setState({
+                showEditEventPopup: !this.state.showEditEventPopup
+            });
+        }
+        if(event === "delete") {
+            this.setState({
+                showDeleteEventPopup: !this.state.showDeleteEventPopup
+            });
+        }
     }
 
     toggleHover() {
@@ -38,72 +57,101 @@ class CompactEventWithoutRouter extends React.Component {
         })
     }
 
-
     handleClick() {
         this.props.history.push('/event/'+this.state.uuid);
     }
 
-    handleClick2(e) {
+    edit(e) {
         e.stopPropagation();
-        alert(1);
+        this.setState({
+            showEditEventPopup: !this.state.showEditEventPopup
+        });
+    }
+
+    delete(e) {
+        e.stopPropagation();
+        this.setState({
+            showDeleteEventPopup: !this.state.showDeleteEventPopup
+        });
     }
 
     render() {
         const buttonStyle = this.state.hovered ? {} : {visibility: "hidden"};
         return (
-            <div className={this.state.hovered ? "compact-event-hovered" : "compact-event"} onClick={this.handleClick} onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}>
-                <div className="compact-event-infos">
-                    <div className="compact-event-infos-1">
-                        <span className="compact-event-title">
-                            {this.props.title}
-                        </span>
-                        <span className="compact-event-author">
-                            <AuthorCard uuid={this.props.author}/>
-                        </span>
+            <div className="compact-event-wrapper">
+                <div className={this.state.hovered ? "compact-event-hovered" : "compact-event"} onClick={this.handleClick} onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}>
+                    <div className="compact-event-infos">
+                        <div className="compact-event-infos-1">
+                            <span className="compact-event-title">
+                                {this.props.title}
+                            </span>
+                            <span className="compact-event-author">
+                                <AuthorCard uuid={this.props.author}/>
+                            </span>
+                        </div>
+                        <div className="compact-event-description">
+                            {this.props.description}
+                        </div>
+                        <div className="compact-event-infos-2">
+                            { this.state.startDate === this.state.endDate ?
+                                (
+                                    <>
+                                        <span className="compact-event-date">
+                                            {this.state.startDate}
+                                        </span>
+                                        <span className="compact-event-time">
+                                            {this.state.startTime}
+                                        -
+                                            {this.state.endTime}
+                                        </span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <span className="compact-event-date">
+                                            {this.state.startDate}
+                                        </span>
+                                        <span className="compact-event-time">
+                                            {this.state.startTime}
+                                        </span>
+                                        -
+                                        <span className="compact-event-date">
+                                            {this.state.endDate}
+                                        </span>
+                                        <span className="compact-event-time">
+                                            {this.state.endTime}
+                                        </span>
+                                    </>
+                                )
+                            }
+                            <span className="compact-event-place">
+                                {this.props.place}
+                            </span>
+                        </div>
                     </div>
-                    <div className="compact-event-description">
-                        {this.props.description}
-                    </div>
-                    <div className="compact-event-infos-2">
-                        { this.state.startDate === this.state.endDate ?
-                            (
-                                <>
-                                    <span className="compact-event-date">
-                                        {this.state.startDate}
-                                    </span>
-                                    <span className="compact-event-time">
-                                        {this.state.startTime}
-                                    -
-                                        {this.state.endTime}
-                                    </span>
-                                </>
-                            ) : (
-                                <>
-                                    <span className="compact-event-date">
-                                        {this.state.startDate}
-                                    </span>
-                                    <span className="compact-event-time">
-                                        {this.state.startTime}
-                                    </span>
-                                    -
-                                    <span className="compact-event-date">
-                                        {this.state.endDate}
-                                    </span>
-                                    <span className="compact-event-time">
-                                        {this.state.endTime}
-                                    </span>
-                                </>
-                            )
-                        }
-                        <span className="compact-event-place">
-                            {this.props.place}
-                        </span>
+                    <div className="compact-event-buttons">
+                        <button onClick={this.edit} style={buttonStyle}>Edit</button>
+                        <button onClick={this.delete} style={buttonStyle}>Delete</button>
                     </div>
                 </div>
-                <div className="compact-event-buttons">
-                    <button onClick={this.handleClick2} style={buttonStyle}>Edit</button>
-                    <button onClick={this.handleClick2} style={buttonStyle}>Delete</button>
-                </div>
+                {this.state.showEditEventPopup &&
+                <EditEventPopup
+                    text='Edit Event :'
+                    title={this.props.title}
+                    description={this.props.description}
+                    startTime={this.state.startTime}
+                    endTime={this.state.endTime}
+                    place={this.props.place}
+                    uuid={this.props.uuid}
+                    closePopup={this.togglePopup.bind(this)}
+                />
+                }
+                {this.state.showDeleteEventPopup &&
+                <DeleteEventPopup
+                    text='Delete Event :'
+                    uuid={this.props.uuid}
+                    closePopup={this.togglePopup.bind(this)}
+                />
+                }
             </div>
         );
     }
@@ -137,6 +185,8 @@ class EventWithoutRouter extends React.Component {
         };
         this.toggleHover = this.toggleHover.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.edit = this.edit.bind(this);
+        this.delete = this.delete.bind(this);
     }
 
     toggleHover() {
@@ -151,9 +201,12 @@ class EventWithoutRouter extends React.Component {
         this.props.history.push('/event/'+this.state.uuid);
     }
 
-    handleClick2(e) {
-        e.stopPropagation();
-        alert(1);
+    edit() {
+        this.props.togglePopup("edit");
+    }
+
+    delete() {
+        this.props.togglePopup("delete");
     }
 
     render() {
@@ -204,8 +257,8 @@ class EventWithoutRouter extends React.Component {
                             <AuthorCard uuid={this.props.author}/>
                         </div>
                         <div className="event-buttons">
-                            <button onClick={this.handleClick2} style={buttonStyle}>Edit</button>
-                            <button onClick={this.handleClick2} style={buttonStyle}>Delete</button>
+                            <button onClick={this.edit} style={buttonStyle}>Edit</button>
+                            <button onClick={this.delete} style={buttonStyle}>Delete</button>
                         </div>
                     </div>
                 </div>

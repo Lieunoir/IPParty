@@ -118,10 +118,16 @@ class EditEventPopup extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClose = this.handleClose.bind(this);
     }
 
     handleChange(event) {
         this.setState({ [event.target.name]: event.target.value });
+    }
+
+    handleClose(e) {
+        e.stopPropagation();
+        this.props.closePopup("edit");
     }
 
     handleSubmit(event) {
@@ -152,7 +158,7 @@ class EditEventPopup extends React.Component {
 
     render() {
         return (
-            <EventPopup text="Create new event" title={this.props.title} description={this.props.description} place={this.props.place} uuid={this.props.uuid} handleSubmit={this.handleSubmit} handleChange={this.handleChange} closePopup={this.props.closePopup} />
+            <EventPopup text="Edit event" title={this.props.title} description={this.props.description} place={this.props.place} uuid={this.props.uuid} handleSubmit={this.handleSubmit} handleChange={this.handleChange} closePopup={this.handleClose} />
         );
     }
 }
@@ -180,7 +186,8 @@ class DeleteEventPopup extends React.Component {
         event.preventDefault();
     }
 
-    handleClose() {
+    handleClose(e) {
+        e.stopPropagation();
         this.props.closePopup("delete");
     }
 
