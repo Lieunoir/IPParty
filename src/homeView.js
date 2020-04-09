@@ -121,7 +121,11 @@ class HomeViewWithoutRouter extends React.Component {
         this.state = {
             events: [
             {title: "Binouze Comète", start: "2020-04-01T08:00:00", end:"2020-04-01T08:00:00", url: "/event/3d708a47-fb84-4c63-a391-26cc194ab086", interessedTag: "Participate", schoolTags: ["Télécom"], typeTags: ["Art", "Cinema", "Party"]},
-            {title: "Rencontre BR", date: "2020-04-10T16:30:00", end:"2020-04-10T18:00:00", url: "/event/3d708a47-fb84-4c63-a391-26cc194ab086", interessedTag: "Participate", schoolTags: ["Télécom", "X"], typeTags: ["Afterwork"]},
+            {title: "Rencontre BR-Rezel", date: "2020-04-10T16:30:00", end:"2020-04-10T18:00:00", url: "/event/3d708a47-fb84-4c63-a391-26cc194ab086", interessedTag: "Participate", schoolTags: ["Télécom", "X"], typeTags: ["Afterwork"]},
+            {title: "Große Binouze Franco-Allemande", date: "2020-04-08T19:30:00", end:"2020-04-08T22:00:00", url: "/event/3d708a47-fb84-4c63-a391-26cc194ab086", interessedTag: "Maybe", schoolTags: ["Télécom"], typeTags: ["Party"]},
+            {title: "Nuit des défis", date: "2020-04-09T20:00:00", end:"2020-04-10T12:00:00", url: "/event/3d708a47-fb84-4c63-a391-26cc194ab086", interessedTag: "Interessed", schoolTags: ["Télécom"], typeTags: ["Afterwork", "Party"]},
+            {title: "Pôt Telecom-ENSTA", date: "2020-04-10T22:00:00", end:"2020-04-11T04:00:00", url: "/event/3d708a47-fb84-4c63-a391-26cc194ab086", interessedTag: "Maybe", schoolTags: ["Télécom", "ENSTA"], typeTags: ["Party"]},
+            {title: "Atelier montage", date: "2020-04-06T17:30:00", end:"2020-04-06T19:00:00", url: "/event/3d708a47-fb84-4c63-a391-26cc194ab086", interessedTag: "Participate", schoolTags: ["Télécom"], typeTags: ["Afterwork", "Art", "Cinema"]},
             ],
             interessedFilter: ["All"],
             schoolFilter: ["All"],
