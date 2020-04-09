@@ -108,16 +108,34 @@ class HomeViewWithoutRouter extends React.Component {
         super(props);
         this.state = {
             events: [
-            {title: "event-1", start: "2020-04-01T08:00:00", end:"2020-04-01T08:00:00"},
-            {title: "event-2", date: "2020-04-10", url: "/event/3d708a47-fb84-4c63-a391-26cc194ab086"},
+            {title: "Binouze Comète", start: "2020-04-01T08:00:00", end:"2020-04-01T08:00:00", url: "/event/3d708a47-fb84-4c63-a391-26cc194ab086", interessedTag: "Participate", schoolTags: ["Télécom"], typeTags: ["Art", "Cinema", "Party"]},
+            {title: "Rencontre BR", date: "2020-04-10T16:30:00", end:"2020-04-10T18:00:00", url: "/event/3d708a47-fb84-4c63-a391-26cc194ab086", interessedTag: "Participate", schoolTags: ["Telecom", "X"], typeTags: ["Afterwork"]},
             ],
+            interessedFilter: ["All"],
+            schoolFilter: ["All"],
+            typeFilter: ["All"],
         };
         this.eventClick = this.eventClick.bind(this);
+        this.filterEvents = this.filterEvents.bind(this);
     }
 
     eventClick(info) {
         info.jsEvent.preventDefault();
         this.props.history.push(info.event.url);
+    }
+
+    filterEvents(events) {
+        let result = this.state.events;
+        if(!this.state.interessedFilter.includes("All")) {
+            result = result.filter(event => this.state.interessedFilter.contains(event.interessedTag));
+        }
+        if(!this.state.schoolFilter.includes("All")) {
+            result = result.filter(event => !event.schoolTags.every(item => !this.state.schoolFilter.includes(item)));
+        }
+        if(!this.state.typeFilter.includes("All")) {
+            result = result.filter(event => !event.typeTags.every(item => !this.state.typeFilter.includes(item)));
+        }
+        return result;
     }
 
     render() {
@@ -129,7 +147,7 @@ class HomeViewWithoutRouter extends React.Component {
                         defaultView="timeGridWeek"
                         height="parent"
                         plugins={[ timeGridPlugin ]}
-                        events={this.state.events}
+                        events={this.filterEvents(this.state.events)}
                         nowIndicator="True"
                         eventClick={this.eventClick}
                     />
