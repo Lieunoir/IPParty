@@ -1,5 +1,4 @@
 import React from 'react';
-import {useParams} from 'react-router-dom';
 import {EditEventPopup, DeleteEventPopup} from './popup.js';
 import {EventWithPost} from './event.js';
 import {CommentList} from './posts.js';

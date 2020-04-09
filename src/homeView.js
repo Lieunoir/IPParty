@@ -1,6 +1,7 @@
 import React from 'react';
 import FullCalendar from '@fullcalendar/react'
 import timeGridPlugin from '@fullcalendar/timegrid'
+import { withRouter } from 'react-router';
 import './main.scss'
 import './homeView.css'
 
@@ -102,21 +103,41 @@ class OtherRow extends React.Component {
 	}
 }
 
-class HomeView extends React.Component {
-    render() {
-        const events = [
+class HomeViewWithoutRouter extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            events: [
             {title: "event-1", start: "2020-04-01T08:00:00", end:"2020-04-01T08:00:00"},
             {title: "event-2", date: "2020-04-10", url: "/event/3d708a47-fb84-4c63-a391-26cc194ab086"},
-        ]
+            ],
+        };
+        this.eventClick = this.eventClick.bind(this);
+    }
+
+    eventClick(info) {
+        info.jsEvent.preventDefault();
+        this.props.history.push(info.event.url);
+    }
+
+    render() {
         return(
             <div className="content-container">
 				<FilterBar/>
                 <div className="news-calendar">
-                    <FullCalendar defaultView="timeGridWeek" height="parent" plugins={[ timeGridPlugin ]} events={events}/>
+                    <FullCalendar
+                        defaultView="timeGridWeek"
+                        height="parent"
+                        plugins={[ timeGridPlugin ]}
+                        events={this.state.events}
+                        nowIndicator="True"
+                        eventClick={this.eventClick}
+                    />
                 </div>
             </div>
         );
     }
 }
+const HomeView = withRouter(HomeViewWithoutRouter);
 
 export default HomeView;
