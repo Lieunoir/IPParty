@@ -32,7 +32,7 @@ class Menu extends React.Component {
         return (
             <div className="menu-container">
                 <div className="user-card-container">
-                    <UserCard username="Colin" />
+                    <UserCard username={this.props.name} />
                 </div>
                 <div className="menu">
                     <MenuBigButton label="CREATE EVENT" handleClick={this.togglePopup}/>
@@ -170,24 +170,26 @@ class App extends React.Component {
         super(props);
         this.state = {
             logged: false,
+            name: "",
         };
         this.login = this.login.bind(this);
     }
 
-    login() {
+    login(name) {
         this.setState({
             logged: true,
+            name: name,
         });
     }
 
     render() {
-        const {logged} = this.state;
+        const {logged, name} = this.state;
         return (
             <>
             {!logged && <Login login={this.login}/>}
             {logged && <div className="container">
                 <Router>
-                    <Menu />
+                    <Menu name={name}/>
                     <Route exact path="/">
                         <HomeView />
                     </Route>

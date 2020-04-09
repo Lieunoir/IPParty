@@ -2,6 +2,25 @@ import React from 'react';
 import './login.css'
 
 class Login extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: "",
+        };
+        this.onClick = this.onClick.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    onClick() {
+        this.props.login(this.state.name);
+    }
+
+    handleChange(event) {
+        this.setState({
+            name: event.target.value,
+        });
+    }
+
     render() {
         return (
 			<div className="loginContainer">
@@ -9,10 +28,10 @@ class Login extends React.Component {
 					Welcom to IPParty
 				</div>
 	            <div className="login">
-	                <form onSubmit={this.props.login}>
+	                <form onSubmit={this.onClick}>
 						<div className='line'>
 							Login :
-	                    	<input type="text" name="username" className='input'></input>
+	                    	<input type="text" name="username" className='input' value={this.state.name} onChange={this.handleChange}></input>
 						</div>
 						<div className='line'>
 							Password :
@@ -26,7 +45,7 @@ class Login extends React.Component {
 						<div id="noaccount">
 						Don't have an account yet?
 						</div>
-		                <button onClick={this.props.login} id='register'>Create Account</button>
+		                <button onClick={this.onClick} id='register'>Create Account</button>
 					</div>
 	            </div>
 			</div>
