@@ -1,6 +1,6 @@
 import React from 'react';
 import {EditEventPopup, DeleteEventPopup} from './popup.js';
-import {EventWithPost} from './event.js';
+import {Event} from './event.js';
 import {CommentList} from './posts.js';
 import Button from './button.js';
 import './container.css';
@@ -87,7 +87,7 @@ class GroupView extends React.Component {
                     <EventViewBar onClick={this.togglePopup}  eventTitle="Test" />
                     <div className="content">
                         <div className="content-deck">
-                            <EventWithPost
+                            <Event
                                 title={event.title}
                                 author={event.author.id}
                                 description={event.description}

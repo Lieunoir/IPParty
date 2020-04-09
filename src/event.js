@@ -389,5 +389,5 @@ const CompactEvent = withRouter(CompactEventWithoutRouter);
 const EventWithPost = withRouter(EventWithPostWithoutRouter);
 
 export default Event;
-export { CompactEvent, EventWithPost };
+export { CompactEvent, EventWithPost, Event };
 
