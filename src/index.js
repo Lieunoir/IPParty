@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, withRouter, useParams } from 'react-router-dom';
 import { PostWithComments } from './posts.js';
 import CreateEventPopup from './popup.js';
 import EventList from './eventList.js';
@@ -188,13 +188,27 @@ class App extends React.Component {
             {logged && <div className="container">
                 <Router>
                     <Menu />
-                    <Route path="/" exact component={HomeView} />
-                    <Route path="/event/:uuid" component={EventView} />
-                    <Route path="/created" exact component={CreatedView} />
-                    <Route path="/news" exact component={NewsView} />
-                    <Route path="/list" exact component={EventList} />
-                    <Route path="/post/:uuid" exact component={PostWithComments} />
-                    <Route path="/group/:uuid" exact component={GroupView} />
+                    <Route exact path="/">
+                        <HomeView />
+                    </Route>
+                    <Route path="/event/:uuid">
+                        <EventView />
+                    </Route>
+                    <Route path="/created" exact>
+                        <CreatedView />
+                    </Route>
+                    <Route path="/news" exact>
+                        <NewsView />
+                    </Route>
+                    <Route path="/list" exact>
+                        <EventList />
+                    </Route>
+                    <Route path="/post/:uuid" exact>
+                        <PostWithCommentsHack />
+                    </Route>
+                    <Route path="/group/:uuid" exact>
+                        <GroupView />
+                    </Route>
                 </Router>
             </div>}
             </>
@@ -202,6 +216,12 @@ class App extends React.Component {
     }
 }
 
+function PostWithCommentsHack() {
+    let {uuid} = useParams();
+    return(
+        <PostWithComments uuid={uuid}/>
+    );
+}
 
 ReactDOM.render(
     <App />,

@@ -1,4 +1,5 @@
 import React from 'react';
+import {useParams} from 'react-router-dom';
 import {EditEventPopup, DeleteEventPopup} from './popup.js';
 import {EventWithPost} from './event.js';
 import {CommentList} from './posts.js';
@@ -47,7 +48,7 @@ class GroupView extends React.Component {
     }
 
     componentDidMount() {
-        fetch("/partyline/events/" + this.props.match.params.uuid)
+        fetch("/partyline/events/" + this.props.uuid)
             .then(res => res.json())
             .then(
                 (result) => {
