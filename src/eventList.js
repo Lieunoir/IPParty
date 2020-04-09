@@ -7,7 +7,7 @@ class EventBar extends React.Component {
         return (
             <div className="menu-bar">
                 <div className="menu-bar-text">
-                    Event List
+                    My Events
                 </div>
             </div>
         );

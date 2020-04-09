@@ -46,7 +46,6 @@ class Menu extends React.Component {
                     <MenuLink label="Home" path="/"/>
                     <MenuLink label="My Events" path="/created"/>
                     <MenuLink label="News" path="/news"/>
-                    <MenuLink label="Test" path="/list"/>
                     <div className="menu-section">
                         <hr />
                         <div className="menu-section-title">
@@ -197,13 +196,10 @@ class App extends React.Component {
                         <EventView />
                     </Route>
                     <Route path="/created" exact>
-                        <CreatedView />
+                        <EventList />
                     </Route>
                     <Route path="/news" exact>
                         <NewsView />
-                    </Route>
-                    <Route path="/list" exact>
-                        <EventList />
                     </Route>
                     <Route path="/post/:uuid" exact>
                         <PostWithCommentsHack />
