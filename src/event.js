@@ -30,6 +30,9 @@ class CompactEventWithoutRouter extends React.Component {
             }).format(new Date(Date.parse(props.endTime))),
             showEditEventPopup: false,
             showDeleteEventPopup: false,
+            title: this.props.title,
+            description: this.props.description,
+            place: this.props.place,
         };
         this.toggleHover = this.toggleHover.bind(this);
         this.handleClick = this.handleClick.bind(this);
@@ -138,11 +141,14 @@ class CompactEventWithoutRouter extends React.Component {
                     text='Edit Event :'
                     title={this.props.title}
                     description={this.props.description}
-                    startTime={this.state.startTime}
-                    endTime={this.state.endTime}
+                    startTime={this.props.startTime}
+                    endTime={this.props.endTime}
+                    startDate={this.props.startDate}
+                    endDate={this.props.endDate}
                     place={this.props.place}
                     uuid={this.props.uuid}
                     closePopup={this.togglePopup.bind(this)}
+                    onUpdate={this.props.onUpdate}
                 />
                 }
                 {this.state.showDeleteEventPopup &&

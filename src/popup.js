@@ -8,6 +8,10 @@ class EventPopup extends React.Component {
             description: this.props.description,
             title: this.props.title,
             place: this.props.place,
+            startDate: this.props.startDate,
+            startTime: this.props.startTime,
+            endDate: this.props.endDate,
+            endTime: this.props.endTime,
             uuid: this.props.uuid,
         };
         this.handleChange = this.handleChange.bind(this);
@@ -132,6 +136,7 @@ class EditEventPopup extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
+        /*
         fetch('/partyline/events/edit', {
             method: 'PATCH',
             headers: {
@@ -152,13 +157,20 @@ class EditEventPopup extends React.Component {
                     nodeId: "telecom-paristech"
                 }
             })
-        });
-        alert("Submitted");
+        });*/
+        let res = {
+            title: this.state.title,
+            description: this.state.description,
+            place: this.state.place,
+            uuid: this.state.uuid,
+        };
+        this.props.onUpdate(res);
+        this.props.closePopup("edit");
     }
 
     render() {
         return (
-            <EventPopup text="Edit event" title={this.props.title} description={this.props.description} place={this.props.place} uuid={this.props.uuid} handleSubmit={this.handleSubmit} handleChange={this.handleChange} closePopup={this.handleClose} />
+            <EventPopup text="Edit event" title={this.props.title} description={this.props.description} place={this.props.place} uuid={this.props.uuid} startTime={this.props.startTime} startDate={this.props.startDate} endTime={this.props.endTime} endDate={this.props.endDate} handleSubmit={this.handleSubmit} handleChange={this.handleChange} closePopup={this.handleClose} />
         );
     }
 }

@@ -9,9 +9,7 @@ class EventViewBar extends React.Component {
     render() {
         return (
             <div className="menu-bar">
-                <Button onClick={this.props.onClick} text="Edit Event" message="edit" />
-                <Button onClick={this.props.onClick} text="Delete Event" message="delete" />
-                {this.props.eventTitle==="" ? "Menu text here" : "Hovered : " + this.props.eventTitle}
+                Event
             </div>
         );
     }

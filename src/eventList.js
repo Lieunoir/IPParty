@@ -24,6 +24,7 @@ class EventList extends React.Component {
             showPopup: false,
         };
         this.updateList = this.updateList.bind(this);
+        this.updateEvent = this.updateEvent.bind(this);
     }
 
     updateList() {
@@ -66,6 +67,21 @@ class EventList extends React.Component {
             )
     }
 
+    updateEvent(event) {
+        const {events} = this.state;
+        let res = events;
+        for (let i = 0; i < res.length; i++) {
+            if(res[i].uuid === event.uuid) {
+                res[i].title = event.title;
+                res[i].description = event.description;
+                res[i].place = event.place;
+            }
+        }
+        this.setState({
+            events: res,
+        });
+    }
+
     render() {
         const { error, isLoaded, events} = this.state;
 
@@ -95,6 +111,7 @@ class EventList extends React.Component {
                                     endTime={event.endTime}
                                     place={event.place}
                                     uuid={event.uuid}
+                                    onUpdate={this.updateEvent}
                                 />
                             ))}
                         </div>
